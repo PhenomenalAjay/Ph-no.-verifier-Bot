@@ -3,71 +3,50 @@
 A Telegram bot that verifies phone numbers using the NumVerify API.
 
 ## Features
-- Verify phone numbers and get detailed information
-- Simple and easy to use
-- Real-time verification results
+- Verify phone numbers with carrier and location information
+- Built with Node.js and Express
+- Deployed on Render with webhook support
 
-## Project Structure
+## Environment Variables
+
+Create a `.env` file with the following variables:
+
 ```
-Number-Verifier-Bot/
-├── src/
-│   ├── bot.js              # Main bot logic
-│   ├── commands/           # Bot command handlers
-│   │   ├── start.js
-│   │   └── verify.js
-│   ├── services/           # External service integrations
-│   │   └── numverify.js
-│   └── utils/              # Utility functions
-│       └── validators.js
-├── config/
-│   └── config.js           # Configuration settings
-├── tests/                  # Test files
-│   ├── unit/
-│   └── integration/
-├── docs/                   # Documentation
-├── .env                    # Environment variables (not in git)
-├── .gitignore
-├── index.js               # Entry point
-├── package.json
-├── package-lock.json
-└── README.md
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+NUMVERIFY_API_KEY=your_numverify_api_key
+PORT=10000
+WEBHOOK_URL=https://your-app.onrender.com/bot<your_telegram_bot_token>
 ```
 
-## Prerequisites
-- Node.js (v14 or higher)
-- Telegram Bot Token
-- NumVerify API Key
+## Local Development
 
-## Installation
-
-1. Install dependencies
+1. Install dependencies:
    ```bash
    npm install
    ```
-2. Create a `.env` file in the root directory with the following content:
-   ```
-   TELEGRAM_BOT_TOKEN=your_telegram_bot_token
-   NUMVERIFY_API_KEY=your_numverify_api_key
-   ```
 
-## Usage
-1. Start the bot
+2. Set up your `.env` file with the required variables
+
+3. Start the bot:
    ```bash
    npm start
    ```
-2. Open Telegram and search for your bot
-3. Send `/start` to begin
-4. Enter a phone number to verify
 
-## API Response Format
-The bot returns the following information:
-- Mobile Number
-- Carrier
-- Location
-- Country Code
+## Deployment on Render
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+1. Create a new Web Service on Render
+2. Set the build command: `npm install`
+3. Set the start command: `npm start`
+4. Add environment variables in Render dashboard
+5. Ensure the webhook URL matches your deployed app URL
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## API Endpoints
+
+- `GET /` - Health check endpoint
+- `POST /bot<token>` - Telegram webhook endpoint
+
+## Usage
+
+1. Start a chat with your bot on Telegram
+2. Send `/start` to begin
+3. Send a phone number to verify it
