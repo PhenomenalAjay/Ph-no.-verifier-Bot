@@ -7,6 +7,32 @@ A Telegram bot that verifies phone numbers using the NumVerify API.
 - Simple and easy to use
 - Real-time verification results
 
+## Project Structure
+```
+Number-Verifier-Bot/
+├── src/
+│   ├── bot.js              # Main bot logic
+│   ├── commands/           # Bot command handlers
+│   │   ├── start.js
+│   │   └── verify.js
+│   ├── services/           # External service integrations
+│   │   └── numverify.js
+│   └── utils/              # Utility functions
+│       └── validators.js
+├── config/
+│   └── config.js           # Configuration settings
+├── tests/                  # Test files
+│   ├── unit/
+│   └── integration/
+├── docs/                   # Documentation
+├── .env                    # Environment variables (not in git)
+├── .gitignore
+├── index.js               # Entry point
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
 ## Prerequisites
 - Node.js (v14 or higher)
 - Telegram Bot Token
